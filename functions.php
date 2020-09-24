@@ -130,7 +130,7 @@ if ( ! function_exists( 'proximity_radius_register_admin_page' ) ) {
 
 function my_acf_init() {
 
-	acf_update_setting('google_api_key', 'AIzaSyB3rLVDLdvPQgr0C1xnC6SpHm_qnayUCK4');
+	acf_update_setting('google_api_key', 'AIzaSyB1YvSmHJ8TtSUSCZFZbZlZwIcMk38l1uI');
 }
 
 add_action('acf/init', 'my_acf_init');
@@ -138,7 +138,7 @@ add_action('acf/init', 'my_acf_init');
 
 // returns longitude and latitude from a location
 function YOUR_THEME_NAME_get_lat_and_lng($origin){
-	$api_key = "AIzaSyB3rLVDLdvPQgr0C1xnC6SpHm_qnayUCK4";
+	$api_key = "AIzaSyB1YvSmHJ8TtSUSCZFZbZlZwIcMk38l1uI";
     $url = "https://maps.googleapis.com/maps/api/geocode/json?address=".urlencode($origin)."&key=".$api_key;
     $result_string = file_get_contents($url);
     $result = json_decode($result_string, true);

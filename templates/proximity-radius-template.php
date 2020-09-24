@@ -94,19 +94,27 @@
 			    $results_query = new WP_Query($results_args);
 			    if($results_query->have_posts()) {
 			        // if the user made a search, add a column for distance
-			        echo $origin ? '<table><thead><tr><th>Name</th><th>Address</th><th>Distance</th></thead><tbody>' : '<table><thead><tr><th>Name</th><th>Address</th></thead><tbody>';
+			        echo $origin ? '<div>' : '<div>';
 			        while($results_query->have_posts()) {
 			            $results_query->the_post();
 			            $address = get_field('address');
 			            $distance = YOUR_THEME_NAME_get_distance($origin, $address['lat'], $address['lng'], $unit);
-			            echo '<tr>';
-			                echo '<td>' . get_the_title() . '</td>';
-			                echo '<td>' . $address['address'] . '</td>';
+									$locations = get_the_terms( $post->ID, 'location' ); foreach ( $locations as $location );
+									$schools = get_the_terms( $post->ID, 'school_type' ); foreach ( $schools as $school );
+									$feat_img = get_the_post_thumbnail_url($post, $size, $attrs);
+									$permalink = get_permalink($post->ID);
+			            echo '<div>';
+											echo '<div style="background-image: url('. $feat_img .');">' . get_the_title() . '</div>';
+			                echo '<div>' . get_the_title() . '</div>';
+											echo '<div>' . esc_html( $location->name ) . '</div>';
+											echo '<div>' . esc_html( $school->name ) . '</div>';
+											echo '<div>' . $address['address'] . '</div>';
+											echo '<a href"' . esc_url( $permalink ) . '">Visit</a>';
 			                // if the user made a search, add a column for distance
-			                echo $origin ? '<td>' . round($distance, 2) . " " . $unit . " from you" . '</td>' : '' ;
-			            echo '</tr>';
+			                echo $origin ? '<div>' . round($distance, 2) . " " . $unit . " from you" . '</div>' : '' ;
+			            echo '</div>';
 			        }
-			        echo '</tbody></table>';
+			        echo '</div></div>';
 			    } else {
 			        echo '<p>No results found</p>';
 			    }
