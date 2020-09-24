@@ -109,7 +109,7 @@
 											echo '<div>' . esc_html( $location->name ) . '</div>';
 											echo '<div>' . esc_html( $school->name ) . '</div>';
 											echo '<div>' . $address['address'] . '</div>';
-											echo '<a href"' . esc_url( $permalink ) . '">Visit</a>';
+											echo '<a href="' . esc_url( $permalink ) . '">Visit</a>';
 			                // if the user made a search, add a column for distance
 			                echo $origin ? '<div>' . round($distance, 2) . " " . $unit . " from you" . '</div>' : '' ;
 			            echo '</div>';
