@@ -94,7 +94,7 @@
 			    $results_query = new WP_Query($results_args);
 			    if($results_query->have_posts()) {
 			        // if the user made a search, add a column for distance
-			        echo $origin ? '<div>' : '<div>';
+			        echo $origin ? '<ul class="proximity-wrap">' : '<ul class="proximity-wrap">';
 			        while($results_query->have_posts()) {
 			            $results_query->the_post();
 			            $address = get_field('address');
@@ -103,18 +103,18 @@
 									$schools = get_the_terms( $post->ID, 'school_type' ); foreach ( $schools as $school );
 									$feat_img = get_the_post_thumbnail_url($post, $size, $attrs);
 									$permalink = get_permalink($post->ID);
-			            echo '<div>';
-											echo '<div style="background-image: url('. $feat_img .');">' . get_the_title() . '</div>';
-			                echo '<div>' . get_the_title() . '</div>';
-											echo '<div>' . esc_html( $location->name ) . '</div>';
-											echo '<div>' . esc_html( $school->name ) . '</div>';
-											echo '<div>' . $address['address'] . '</div>';
-											echo '<a href="' . esc_url( $permalink ) . '">Visit</a>';
+			            echo '<li class="proximity-item"><div class="proximity-card">';
+											echo '<div class="proximity-img" style="background-image: url('. $feat_img .');"></div>';
+											echo '<div class="proximity-type">' . esc_html( $school->name ) . '</div>';
+											echo '<div class="proximity-content"><h2 class="proximity-title"><a href="' . esc_url( $permalink ) . '">' . get_the_title() . '</a></h2>';
+											echo '<div class="pr-address">' . $address['address'] . '</div>';
+											echo '<span class="proximity-location">' . esc_html( $location->name ) . '</span>';
+											echo '<a class="proximity-link" href="' . esc_url( $permalink ) . '">Visit</a>';
 			                // if the user made a search, add a column for distance
 			                echo $origin ? '<div>' . round($distance, 2) . " " . $unit . " from you" . '</div>' : '' ;
-			            echo '</div>';
+			            echo '</div></div></li>';
 			        }
-			        echo '</div></div>';
+			        echo '</ul></ul>';
 			    } else {
 			        echo '<p>No results found</p>';
 			    }

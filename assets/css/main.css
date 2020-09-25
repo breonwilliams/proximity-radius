@@ -1,3 +1,81 @@
-body {
-	background: black;
+
+
+.proximity-img {
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-top-left-radius: 0.25rem;
+  border-top-right-radius: 0.25rem;
+  height: 150px;
+  margin: -30px -30px 30px -30px;
+}
+
+.proximity-title {
+	font-size: 24px;
+	line-height: normal;
+	margin: 15px 0;
+}
+
+.proximity-wrap {
+  display: -webkit-box;
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.proximity-item {
+  display: -webkit-box;
+  display: flex;
+  padding: 30px;
+	margin: 0;
+}
+@media (min-width: 600px) {
+  .proximity-item {
+    width: 100%;
+  }
+}
+@media (min-width: 900px) {
+  .proximity-item {
+    width: 33.3333%;
+  }
+}
+.proximity-card {
+  background-color: white;
+  border-radius: 0.25rem;
+  box-shadow: 0 20px 40px -14px rgba(0, 0, 0, 0.25);
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+          flex-direction: column;
+  overflow: hidden;
+}
+
+.proximity-card {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-flex: 1;
+          flex: 1 1 auto;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+          flex-direction: column;
+  position: relative;
+  padding: 30px;
+}
+
+.proximity-content {
+margin-bottom: 40px;
+}
+
+.proximity-location {
+  position: absolute;
+  bottom: 30px;
+  left: 30px;
+}
+
+.proximity-link {
+  position: absolute;
+  bottom: 30px;
+  right: 30px;
 }
