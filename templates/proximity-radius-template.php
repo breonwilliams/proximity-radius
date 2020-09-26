@@ -8,20 +8,26 @@
 			<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
 				<form method="get" action="<?php echo get_permalink(); ?>">
-			    <div>
-			        <span>Find a School within</span>
-			        <input name="proximity" type="number" placeholder="15" value="<?php echo $_GET['proximity'] ?>" />
-			            <select name="units">
-			                <option value="Miles" <?php echo $_GET['units'] === 'Miles' ? 'selected' : null; ?>>Miles</option>
-			                <option value="K" <?php echo $_GET['units'] === 'K' ? 'selected' : null; ?>>Km</option>
-			            </select>
-			            <span>from</span>
-			        <input name="origin" type="text" placeholder="Your Address" value="<?php echo $_GET['origin'] ?>" />
-			    </div>
-			    <div>
-			        <input type="submit" value="Search" />
-			        <a href="<?php echo get_permalink(); ?>">Reset</a>
-			    </div>
+					<div class="pr-form-wrap">
+					<div class="pr-form-item">
+							<span class="pr-form-text">Find a School within</span>
+							<input name="proximity" type="number" placeholder="0" value="<?php echo $_GET['proximity'] ?>" />
+						</div>
+							<div class="pr-form-item">
+									<select class="minimal" name="units">
+											<option value="Miles" <?php echo $_GET['units'] === 'Miles' ? 'selected' : null; ?>>Miles</option>
+											<option value="K" <?php echo $_GET['units'] === 'K' ? 'selected' : null; ?>>Km</option>
+									</select>
+								</div>
+								<div class="pr-form-item">
+									<span class="pr-form-text">from</span>
+							<input name="origin" type="text" placeholder="Your Address" value="<?php echo $_GET['origin'] ?>" />
+						</div>
+					<div class="pr-form-item">
+							<input type="submit" value="Search" />
+							<span class="pr-form-text"><a href="<?php echo get_permalink(); ?>">Reset</a></span>
+					</div>
+					</div>
 			</form>
 
 			<?php

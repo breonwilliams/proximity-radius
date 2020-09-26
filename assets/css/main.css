@@ -1,4 +1,88 @@
+form select {
+  /* styling */
+  background-color: white;
+  border: none;
+  border-radius: 4px;
+  display: inline-block;
+  font: inherit;
+  line-height: 1.5em;
+  padding: 0.5em 3.5em 0.5em 1em;
 
+  /* reset */
+
+  margin: 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+select.minimal {
+  background-image: linear-gradient(45deg, transparent 50%, gray 50%),
+    linear-gradient(135deg, gray 50%, transparent 50%),
+    linear-gradient(to right, #ccc, #ccc);
+  background-position: calc(100% - 14px) calc(26px + 2px),
+    calc(100% - 9px) calc(1em + 10px), calc(100% - 1.5em) 0.8em;
+  background-size: 5px 5px, 5px 5px, 1px 1.5em;
+  background-repeat: no-repeat;
+}
+
+select.minimal:focus {
+  background-image: linear-gradient(45deg, #fff 50%, transparent 50%),
+    linear-gradient(135deg, transparent 50%, #fff 50%),
+    linear-gradient(to right, #ccc, #ccc);
+  background-position: calc(100% - 15px) 1em, calc(100% - 20px) 1em,
+    calc(100% - 2.5em) 0.5em;
+  background-size: 5px 5px, 5px 5px, 1px 1.5em;
+  background-repeat: no-repeat;
+  border-color: #fff;
+  outline: 0;
+}
+
+form input[type=text],
+form input[type=search],
+form input[type=email],
+form input[type=password],
+form input[type=number],
+form textarea {
+	hyphens: manual;
+	margin: 0;
+	overflow: visible;
+	outline-offset: -2px;
+	box-sizing: border-box;
+	min-height: 55px !important;
+	appearance: none;
+	border: 1px solid #666;
+	border-radius: 3px;
+	padding: .5rem 1rem;
+	transition: all .3s;
+	width: auto;
+	font-family: "Open Sans", Sans-serif;
+	font-size: 18px;
+	font-weight: bold;
+	line-height: 24px;
+	color: #6C6C6C;
+	background-color: #FFFFFF;
+	border-style: solid;
+	border-width: 1px 1px 1px 1px;
+	border-color: #FFFFFF;
+}
+
+.pr-form-wrap {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.pr-form-item {
+  display: flex;
+	padding: 15px;
+}
+
+.pr-form-text {
+	padding: 15px;
+  line-height: 25px;
+}
 
 .proximity-img {
   background-position: center center;
@@ -17,7 +101,6 @@
 }
 
 .proximity-wrap {
-  display: -webkit-box;
   display: flex;
   flex-wrap: wrap;
   list-style: none;
@@ -25,7 +108,6 @@
   padding: 0;
 }
 .proximity-item {
-  display: -webkit-box;
   display: flex;
   padding: 30px;
 	margin: 0;
