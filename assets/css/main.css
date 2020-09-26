@@ -1,4 +1,4 @@
-form select {
+form.pr-form select {
   /* styling */
   background-color: white;
   border: none;
@@ -18,41 +18,41 @@ form select {
   -moz-appearance: none;
 }
 
-select.minimal {
-  background-image: linear-gradient(45deg, transparent 50%, gray 50%),
-    linear-gradient(135deg, gray 50%, transparent 50%),
-    linear-gradient(to right, #ccc, #ccc);
+.pr-form select.minimal {
+  background-image: linear-gradient(45deg, transparent 50%, blue 50%),
+    linear-gradient(135deg, blue 50%, transparent 50%),
+    linear-gradient(to right, skyblue, skyblue);
   background-position: calc(100% - 20px) calc(1em + 2px),
-    calc(100% - 15px) calc(1em + 2px), calc(100% - 2.5em) 0.5em;
-  background-size: 5px 5px, 5px 5px, 1px 1.5em;
+    calc(100% - 15px) calc(1em + 2px), 100% 0;
+  background-size: 5px 5px, 5px 5px, 2.5em 2.5em;
   background-repeat: no-repeat;
+	height: 45px;
 }
 
-select.minimal:focus {
-  background-image: linear-gradient(45deg, green 50%, transparent 50%),
-    linear-gradient(135deg, transparent 50%, green 50%),
-    linear-gradient(to right, #ccc, #ccc);
-  background-position: calc(100% - 15px) 1em, calc(100% - 20px) 1em,
-    calc(100% - 2.5em) 0.5em;
-  background-size: 5px 5px, 5px 5px, 1px 1.5em;
+.pr-form select.minimal:focus {
+  background-image: linear-gradient(45deg, white 50%, transparent 50%),
+    linear-gradient(135deg, transparent 50%, white 50%),
+    linear-gradient(to right, gray, gray);
+  background-position: calc(100% - 15px) 1em, calc(100% - 20px) 1em, 100% 0;
+  background-size: 5px 5px, 5px 5px, 2.5em 2.5em;
   background-repeat: no-repeat;
-  border-color: green;
+  border-color: grey;
   outline: 0;
 }
 
 
-form input[type=text],
-form input[type=search],
-form input[type=email],
-form input[type=password],
-form input[type=number],
-form textarea {
+form.pr-form input[type=text],
+form.pr-form input[type=search],
+form.pr-form input[type=email],
+form.pr-form input[type=password],
+form.pr-form input[type=number],
+form.pr-form textarea {
 	hyphens: manual;
 	margin: 0;
 	overflow: visible;
 	outline-offset: -2px;
 	box-sizing: border-box;
-	min-height: 55px !important;
+	height: 45px !important;
 	appearance: none;
 	border: 1px solid #666;
 	border-radius: 3px;
@@ -81,8 +81,12 @@ form textarea {
 }
 
 .pr-form-text {
-	padding: 15px;
-  line-height: 25px;
+	padding: 12px 15px;
+    line-height: normal;
+}
+
+.pr-submit {
+	padding: 5px 15px!important;
 }
 
 .proximity-img {

@@ -7,7 +7,7 @@
 
 			<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
-				<form method="get" action="<?php echo get_permalink(); ?>">
+				<form class="pr-form" method="get" action="<?php echo get_permalink(); ?>">
 					<div class="pr-form-wrap">
 					<div class="pr-form-item">
 							<span class="pr-form-text">Find a School within</span>
@@ -24,7 +24,7 @@
 							<input name="origin" type="text" placeholder="Your Address" value="<?php echo $_GET['origin'] ?>" />
 						</div>
 					<div class="pr-form-item">
-							<input type="submit" value="Search" />
+							<input class="pr-submit" type="submit" value="Search" />
 							<span class="pr-form-text"><a href="<?php echo get_permalink(); ?>">Reset</a></span>
 					</div>
 					</div>
