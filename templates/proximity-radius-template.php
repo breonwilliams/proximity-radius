@@ -9,6 +9,13 @@
 
 				<form class="pr-form" method="get" action="<?php echo get_permalink(); ?>">
 					<div class="pr-form-wrap">
+						<div class="pr-form-item">
+							<select class="minimal" name="school_type">
+							<option data-label="All">All</option>
+							<option data-label="Community College">Community College</option>
+							<option data-label="University">University</option>
+							</select>
+						</div>
 					<div class="pr-form-item">
 							<span class="pr-form-text">Find a School within</span>
 							<input name="proximity" type="number" placeholder="0" value="<?php echo $_GET['proximity'] ?>" />
