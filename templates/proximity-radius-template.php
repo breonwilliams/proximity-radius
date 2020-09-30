@@ -5,15 +5,25 @@
 
 			<?php the_post(); ?>
 
+			<?php
+				$school_type_terms = get_terms([
+				    'taxonomy' => 'school_type',
+				    'hide_empty' => false,
+				    'parent'   => 0
+				]);
+			?>
+
 			<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
-				<form class="pr-form" method="get" action="<?php echo get_permalink(); ?>">
+				<form class="pr-form xx" method="get" action="<?php echo get_permalink(); ?>">
 					<div class="pr-form-wrap">
 						<div class="pr-form-item">
 							<select class="minimal" name="school_type">
-							<option data-label="All">All</option>
-							<option data-label="Community College">Community College</option>
-							<option data-label="University">University</option>
+							<option <?php selected( $_GET['school_type'], 'all' ); ?> value="all" data-label="all">All</option>
+							<?php foreach( $school_type_terms as $term ) { ?>
+								<option <?php selected( $_GET['school_type'], $term->term_id ); ?> value="<?php echo $term->term_id; ?>" data-label="<?php echo $term->name; ?>"><?php echo $term->name; ?></option>
+							<?php } ?>
+
 							</select>
 						</div>
 					<div class="pr-form-item">
@@ -44,6 +54,7 @@
 			$proximity = isset($_GET['proximity']) ? $_GET['proximity'] : null;
 			$origin = isset($_GET['origin']) ? $_GET['origin'] : null;
 			$unit = isset($_GET['units']) ? $_GET['units'] : null;
+			$type = !empty($_GET['school_type']) ? $_GET['school_type'] : 'all';
 
 			    // create an empty array to store results for a later query
 			    $results = array();
@@ -51,10 +62,13 @@
 			    // only run this query if a user has made a search
 			    if ($origin) {
 
-			        $proximity_query = new WP_Query(array(
+			    	$proximity_args = array(
 			                'post_type' 		=> 'schools', /* this is the name of our custom post type */
 			                'posts_per_page'	=> -1
-			        ));
+			        );
+
+					$proximity_query = new WP_Query($proximity_args);
+
 
 			        // loop over each result
 			        // and calculate if it's in the proximity
@@ -102,6 +116,18 @@
 			            'posts_per_page' 	=> -1
 			        );
 			    }
+
+			    if( $type != 'all' ){
+
+					$results_args['tax_query'] = array(
+						array(
+                        'taxonomy' => 'school_type',
+                        'field' => 'term_id',
+                        'terms' => array($type),
+                        'operator' => 'IN',
+                   		)
+					);
+				}
 
 			    // create a new query to display the results
 			    $results_query = new WP_Query($results_args);
