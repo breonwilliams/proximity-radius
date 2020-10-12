@@ -179,3 +179,5 @@ function YOUR_THEME_NAME_get_distance($origin, $address_lat, $address_lng, $unit
         return $miles;
     }
 }
+
+include_once('acf/custom-fields.php');
