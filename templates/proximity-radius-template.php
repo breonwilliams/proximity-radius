@@ -142,11 +142,10 @@
 									$schools = get_the_terms( $post->ID, 'school_type' ); foreach ( $schools as $school );
 									$feat_img = get_the_post_thumbnail_url($post, $size, $attrs);
 									$permalink = get_permalink($post->ID);
-									$terms = get_terms('school_type');
 
 			            echo '<li class="proximity-item"><div class="proximity-card">';
 											echo '<div class="proximity-img" style="background-image: url('. $feat_img .');"></div>';
-											echo '<div class="proximity-type"><a href="'.get_term_link($term).'">' . esc_html( $school->name ) . '</a></div>';
+											echo '<div class="proximity-type"><a href="#">' . esc_html( $school->name ) . '</a></div>';
 											echo '<div class="proximity-content"><h2 class="proximity-title"><a href="' . esc_url( $permalink ) . '">' . get_the_title() . '</a></h2>';
 											echo '<div class="pr-address">' . $address['address'] . '</div>';
 											echo '<span class="proximity-location">' . esc_html( $location->name ) . '</span>';
