@@ -142,13 +142,23 @@
 									$schools = get_the_terms( $post->ID, 'school_type' ); foreach ( $schools as $school );
 									$feat_img = get_the_post_thumbnail_url($post, $size, $attrs);
 									$permalink = get_permalink($post->ID);
+									$terms = get_terms('school_type');
+
 			            echo '<li class="proximity-item"><div class="proximity-card">';
 											echo '<div class="proximity-img" style="background-image: url('. $feat_img .');"></div>';
-											echo '<div class="proximity-type">' . esc_html( $school->name ) . '</div>';
+											echo '<div class="proximity-type"><a href="'.get_term_link($term).'">' . esc_html( $school->name ) . '</a></div>';
 											echo '<div class="proximity-content"><h2 class="proximity-title"><a href="' . esc_url( $permalink ) . '">' . get_the_title() . '</a></h2>';
 											echo '<div class="pr-address">' . $address['address'] . '</div>';
 											echo '<span class="proximity-location">' . esc_html( $location->name ) . '</span>';
-											echo '<a class="proximity-link" href="' . esc_url( $permalink ) . '">Visit</a>';
+											?>
+											<?php if ( get_field( 'website' ) ): ?><?php
+											echo '<a class="proximity-link pr-visit" href="' . get_field('website') . '" target="_blank">Visit</a>';
+											?>
+											<?php else: // field_name returned false ?><?php
+												echo '<a class="proximity-link" href="' . esc_url( $permalink ) . '">More Info</a>';
+											?>
+											<?php endif; // end of if field_name logic ?>
+											<?php
 			                // if the user made a search, add a column for distance
 			                echo $origin ? '<div>' . round($distance, 2) . " " . $unit . " from you" . '</div>' : '' ;
 			            echo '</div></div></li>';
