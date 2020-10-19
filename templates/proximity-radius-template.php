@@ -9,7 +9,7 @@ $heroImage = get_field('hero_background_image'); ?>
 <?php get_header(); ?>
 
 <div class="pr-hero-content">
-	<div class="pr-hero-inner-content">
+	<div style="max-width: 831px;">
 		<?php the_field('hero_content'); ?>
 	</div>
 </div>
@@ -174,7 +174,16 @@ $heroImage = get_field('hero_background_image'); ?>
 			            echo '<li class="proximity-item"><div class="proximity-card">';
 											echo '<div class="proximity-img" style="background-image: url('. $feat_img .');"></div>';
 											echo '<div class="proximity-type"><a href="'.get_term_link($school).'">#' . esc_html( $school->name ) . '</a></div>';
-											echo '<div class="proximity-content"><h2 class="proximity-title">' . get_the_title() . '</h2>';
+											?>
+											<?php if ( get_field( 'website' ) ): ?><?php
+											echo '<div class="proximity-content"><h2 class="proximity-title"><a href="' . get_field('website') . '">' . get_the_title() . '</a></h2>';
+											?>
+											<?php else: // field_name returned false ?><?php
+												echo '<div class="proximity-content"><h2 class="proximity-title"><a href="' . esc_url( $permalink ) . '">' . get_the_title() . '</a></h2>';
+											?>
+											<?php endif; // end of if field_name logic ?>
+											<?php
+
 											echo '<div class="pr-address">' . $address['address'] . '</div>';
 											echo '<span class="proximity-location">' . esc_html( $location->name ) . '</span>';
 											?>
