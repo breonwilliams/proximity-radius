@@ -46,8 +46,12 @@
 					</div>
 					</div>
 			</form>
+			</article>
 
+		<?php endwhile; ?>
 			<?php
+
+			wp_reset_postdata();
 
 			// get the parameters from the URL
 			// these parameter names come from the 'name' attribute of each input in the form
@@ -113,7 +117,7 @@
 			    } else {
 			        $results_args = array(
 			            'post_type' 		=> 'schools',
-			            'posts_per_page' 	=> -1
+			            //'posts_per_page' 	=> -1
 			        );
 			    }
 
@@ -129,6 +133,11 @@
 					);
 				}
 
+				$paged = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
+				$results_args['paged'] = $paged;
+				$results_args['posts_per_page'] = 3;
+
+
 			    // create a new query to display the results
 			    $results_query = new WP_Query($results_args);
 			    if($results_query->have_posts()) {
@@ -138,14 +147,16 @@
 			            $results_query->the_post();
 			            $address = get_field('address');
 			            $distance = YOUR_THEME_NAME_get_distance($origin, $address['lat'], $address['lng'], $unit);
-									$locations = get_the_terms( $post->ID, 'location' ); foreach ( $locations as $location );
-									$schools = get_the_terms( $post->ID, 'school_type' ); foreach ( $schools as $school );
+									$locations = get_the_terms( $post->ID, 'location' );
+									foreach ( $locations as $location );
+									$schools = get_the_terms( $post->ID, 'school_type' );
+									foreach ( $schools as $school );
 									$feat_img = get_the_post_thumbnail_url($post, $size, $attrs);
 									$permalink = get_permalink($post->ID);
 
 			            echo '<li class="proximity-item"><div class="proximity-card">';
 											echo '<div class="proximity-img" style="background-image: url('. $feat_img .');"></div>';
-											echo '<div class="proximity-type"><a href="#">' . esc_html( $school->name ) . '</a></div>';
+											echo '<div class="proximity-type"><a href="'.get_term_link($school).'">#' . esc_html( $school->name ) . '</a></div>';
 											echo '<div class="proximity-content"><h2 class="proximity-title"><a href="' . esc_url( $permalink ) . '">' . get_the_title() . '</a></h2>';
 											echo '<div class="pr-address">' . $address['address'] . '</div>';
 											echo '<span class="proximity-location">' . esc_html( $location->name ) . '</span>';
@@ -163,15 +174,34 @@
 			            echo '</div></div></li>';
 			        }
 			        echo '</ul></ul>';
+
+			        wp_reset_postdata();
+
+			         echo '<div class="wp-pagenavi">';
+
+			         echo paginate_links( array(
+			             'base'         => str_replace( 999999999, '%#%', esc_url( get_pagenum_link( 999999999 ) ) ),
+			             'total'        => $results_query->max_num_pages,
+			             'current'      => max( 1, get_query_var( 'paged' ) ),
+			             'format'       => '?paged=%#%',
+			             'type'         => 'plain',
+			             'end_size'     => 2,
+			             'mid_size'     => 1,
+			             'prev_next'    => true,
+			             'prev_text'    => sprintf( '<i></i> %1$s', __( 'Previous', 'text-domain' ) ),
+			             'next_text'    => sprintf( '%1$s <i></i>', __( 'Next', 'text-domain' ) ),
+			             'add_args'     => false,
+			             'add_fragment' => '',
+			         ) );
+
+				 echo '</div>';
 			    } else {
 			        echo '<p>No results found</p>';
 			    }
 
 			    // reset the $results_query
-			    wp_reset_postdata();
+
 			?>
 
-			</article>
 
-		<?php endwhile; ?>
 <?php get_footer(); ?>
