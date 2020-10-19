@@ -9,7 +9,7 @@ $heroImage = get_field('hero_background_image'); ?>
 <?php get_header(); ?>
 
 <div class="pr-hero-content">
-	<div style="max-width: 831px;">
+	<div class="pr-hero-inner-content">
 		<?php the_field('hero_content'); ?>
 	</div>
 </div>
