@@ -1,4 +1,21 @@
+<?php if ( get_field( 'hero_background_image' ) ): ?><?php
+$heroImage = get_field('hero_background_image'); ?>
+<div class="pr-hero-wrap" style="background-image: url(<?php echo esc_url($heroImage['url']); ?>);">
+
+<?php else: // field_name returned false ?>
+	<div class="pr-hero-wrap">
+<?php endif; // end of if field_name logic ?>
+<div class="pr-hero-overlay">
 <?php get_header(); ?>
+
+<div class="pr-hero-content">
+	<div style="max-width: 831px;">
+		<?php the_field('hero_content'); ?>
+	</div>
+</div>
+
+</div>
+</div>
 		<?php wp_body_open(); ?>
 
 		<?php while ( have_posts() ) : ?>
@@ -177,7 +194,7 @@
 
 			        wp_reset_postdata();
 
-			         echo '<div class="wp-pagenavi">';
+			         echo '<div class="pagination">';
 
 			         echo paginate_links( array(
 			             'base'         => str_replace( 999999999, '%#%', esc_url( get_pagenum_link( 999999999 ) ) ),
