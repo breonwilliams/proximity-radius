@@ -174,7 +174,7 @@ $heroImage = get_field('hero_background_image'); ?>
 			            echo '<li class="proximity-item"><div class="proximity-card">';
 											echo '<div class="proximity-img" style="background-image: url('. $feat_img .');"></div>';
 											echo '<div class="proximity-type"><a href="'.get_term_link($school).'">#' . esc_html( $school->name ) . '</a></div>';
-											echo '<div class="proximity-content"><h2 class="proximity-title"><a href="' . esc_url( $permalink ) . '">' . get_the_title() . '</a></h2>';
+											echo '<div class="proximity-content"><h2 class="proximity-title">' . get_the_title() . '</h2>';
 											echo '<div class="pr-address">' . $address['address'] . '</div>';
 											echo '<span class="proximity-location">' . esc_html( $location->name ) . '</span>';
 											?>
