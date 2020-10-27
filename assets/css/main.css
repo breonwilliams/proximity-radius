@@ -18,15 +18,36 @@ form.pr-form select {
   -moz-appearance: none;
 }
 
+.pr-form-wrap {
+  margin: auto;
+  max-width: 1110px;
+}
+
+.pr-container {
+  background-color: #E5E7EB;
+}
+
+.pr-label {
+  font-family: "Open Sans", Sans-serif;
+    font-size: 18px;
+    font-weight: bold;
+    color: #262626;
+}
+
 .pr-form select.minimal {
-  background-image: linear-gradient(45deg, transparent 50%, blue 50%),
-    linear-gradient(135deg, blue 50%, transparent 50%),
-    linear-gradient(to right, skyblue, skyblue);
+  background-image: linear-gradient(45deg, transparent 50%, white 50%),
+    linear-gradient(135deg, white 50%, transparent 50%),
+    linear-gradient(to right, #0F4876, #0F4876);
   background-position: calc(100% - 20px) calc(1em + 2px),
     calc(100% - 15px) calc(1em + 2px), 100% 0;
   background-size: 5px 5px, 5px 5px, 2.5em 2.5em;
   background-repeat: no-repeat;
 	height: 45px;
+  font-family: "Open Sans", Sans-serif;
+    font-size: 18px;
+    font-weight: bold;
+    color: #6C6C6C;
+    line-height: 21px;
 }
 
 .pr-form select.minimal:focus {
@@ -71,13 +92,16 @@ form.pr-form textarea {
 }
 
 .pr-form-wrap {
-  display: flex;
-  flex-wrap: wrap;
+
 }
 
 .pr-form-item {
-  display: flex;
 	padding: 15px;
+  float: left;
+}
+
+.clearfix {
+  clear: both;
 }
 
 .pr-form-text {
@@ -85,8 +109,8 @@ form.pr-form textarea {
     line-height: normal;
 }
 
-.pr-submit {
-	padding: 5px 15px!important;
+[type=submit].pr-submit {
+	padding: 9px 10px!important;
 }
 
 .proximity-img {
@@ -174,7 +198,7 @@ margin-bottom: 40px;
 }
 
 .pr-hero-content {
-  max-width: 1140px;
+  max-width: 1080px;
   margin-left: auto;
   margin-right: auto;
   padding: 66px 0 66px 0;
@@ -211,7 +235,7 @@ font-weight: 800;
 
 .pagination {
   margin: auto;
-  max-width: 1140px;
+  max-width: 1080px;
 }
 
 .pagination .page-numbers {
@@ -234,4 +258,71 @@ padding: 10px 11px 10px 12px;
 .pagination .page-numbers.current {
   background-color: #F2B338;
     border-color: #F2B338;
+}
+
+
+
+.pr-form select.minimal, form.pr-form input[type=text], form.pr-form input[type=search], form.pr-form input[type=email], form.pr-form input[type=password], form.pr-form input[type=number], form.pr-form textarea {
+    height: 40px!important;
+}
+
+form.pr-form input[type=text], form.pr-form input[type=search], form.pr-form input[type=email], form.pr-form input[type=password], form.pr-form input[type=number], form.pr-form textarea {
+    height: 40px !important;
+}
+
+.proximity-wrap {
+	max-width: 1140px;
+	margin: auto;
+}
+
+.pr-address {
+	display: none;
+}
+
+[type=submit].pr-submit {
+line-height: 1;
+text-align: center;
+transition: all .3s;
+box-shadow: none;
+text-decoration: none;
+width: auto;
+font-family: "Open Sans", Sans-serif;
+font-size: 18px;
+font-weight: bold;
+fill: #0F4876;
+color: #0F4876;
+background-color: rgba(147, 147, 147, 0);
+border-style: solid;
+border-width: 2px 2px 2px 2px;
+border-color: #0F4876;
+border-radius: 5px 5px 5px 5px;
+padding: 16px 16px 16px 16px;
+}
+
+[type=submit].pr-submit:hover, [type=submit].pr-submit:focus {
+background-color: #0F4876;
+}
+
+.proximity-title a {
+word-break: break-word;
+text-align: left;
+hyphens: manual;
+font-family: "Work Sans";
+font-weight: 800;
+background-color: transparent;
+box-sizing: border-box;
+box-shadow: none;
+text-decoration: none;
+font-size: inherit;
+line-height: inherit;
+color: #262626!important;
+}
+
+.proximity-title a:hover {
+  color: #0F4876!important;
+  text-decoration: underline;
+}
+
+.proximity-type a {
+	color: #000;
 }
