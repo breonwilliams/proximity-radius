@@ -140,12 +140,16 @@ add_action('acf/init', 'my_acf_init');
 function YOUR_THEME_NAME_get_lat_and_lng($origin){
 	$api_key = "AIzaSyB1YvSmHJ8TtSUSCZFZbZlZwIcMk38l1uI";
     $url = "https://maps.googleapis.com/maps/api/geocode/json?address=".urlencode($origin)."&key=".$api_key;
+    if(!empty($origin)){
     $result_string = file_get_contents($url);
+
     $result = json_decode($result_string, true);
+
     $result1[]=$result['results'][0];
     $result2[]=$result1[0]['geometry'];
 	$result3[]=$result2[0]['location'];
 	return $result3[0];
+    }
 }
 
 // returns distance between two locations
