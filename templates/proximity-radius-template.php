@@ -47,7 +47,7 @@ $heroImage = get_field('hero_background_image'); ?>
 						</div>
 					<div class="pr-form-item">
 						<p class="pr-label">Find a school within:</p>
-							<input name="proximity" type="number" placeholder="10" value="<?php echo $_GET['proximity'] ?>" style="width: 100px" />
+							<input name="proximity" type="number" placeholder="0" value="<?php echo $_GET['proximity'] ?>" style="width: 100px" />
 							<select class="minimal" name="units" style="width: 130px">
 									<option value="Miles" <?php echo $_GET['units'] === 'Miles' ? 'selected' : null; ?>>Miles</option>
 									<option value="K" <?php echo $_GET['units'] === 'K' ? 'selected' : null; ?>>Km</option>
@@ -60,7 +60,7 @@ $heroImage = get_field('hero_background_image'); ?>
 						</div>
 					<div class="pr-form-item" style="padding-top: 57px;">
 							<input class="pr-submit" type="submit" value="Search" />
-							<span class="pr-form-text"><a href="<?php echo get_permalink(); ?>">Reset</a></span>
+							<span class="pr-form-text"><a class="pr-reset" href="<?php echo get_permalink(); ?>">Reset</a></span>
 					</div>
 					<div class="clearfix"></div>
 					</div>
@@ -176,7 +176,7 @@ $heroImage = get_field('hero_background_image'); ?>
 
 			            echo '<li class="proximity-item"><div class="proximity-card">';
 											echo '<div class="proximity-img" style="background-image: url('. $feat_img .');"></div>';
-											echo '<div class="proximity-type"><a href="'.get_term_link($school).'">#' . esc_html( $school->name ) . '</a></div>';
+											echo '<div class="proximity-type"><a href="'.get_term_link($school).'">' . esc_html( $school->name ) . '</a></div>';
 											?>
 											<?php if ( get_field( 'website' ) ): ?><?php
 											echo '<div class="proximity-content"><h2 class="proximity-title"><a href="' . get_field('website') . '">' . get_the_title() . '</a></h2>';
@@ -191,7 +191,7 @@ $heroImage = get_field('hero_background_image'); ?>
 											echo '<span class="proximity-location">' . esc_html( $location->name ) . '</span>';
 											?>
 											<?php if ( get_field( 'website' ) ): ?><?php
-											echo '<a class="proximity-link pr-visit" href="' . get_field('website') . '" target="_blank">Visit</a>';
+											echo '<a class="proximity-link pr-visit" href="' . get_field('website') . '" target="_blank">Visit <i class="fas fa-external-link-alt fa-xs"></i></a>';
 											?>
 											<?php else: // field_name returned false ?><?php
 												echo '<a class="proximity-link" href="' . esc_url( $permalink ) . '">More Info</a>';
@@ -225,7 +225,7 @@ $heroImage = get_field('hero_background_image'); ?>
 
 				 echo '</div>';
 			    } else {
-			        echo '<p>No results found</p>';
+			        echo '<div class="pr-noresults-wrap"><p>No results found</p></div>';
 			    }
 
 			    // reset the $results_query
