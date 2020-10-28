@@ -58,7 +58,7 @@ $heroImage = get_field('hero_background_image'); ?>
 									<p class="pr-label">Search by Zip code:</p>
 							<input name="origin" type="text" placeholder="Enter zip code" value="<?php echo $_GET['origin'] ?>" />
 						</div>
-					<div class="pr-form-item" style="padding-top: 57px;">
+					<div class="pr-form-item pr-form-submit">
 							<input class="pr-submit" type="submit" value="Search" />
 							<span class="pr-form-text"><a class="pr-reset" href="<?php echo get_permalink(); ?>">Reset</a></span>
 					</div>

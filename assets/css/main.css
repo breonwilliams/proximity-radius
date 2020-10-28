@@ -20,7 +20,8 @@ form.pr-form select {
 
 .pr-form-wrap {
   margin: auto;
-  max-width: 1110px;
+  max-width: 1140px;
+  padding: 0 15px;
 }
 
 .pr-noresults-wrap {
@@ -105,13 +106,15 @@ form.pr-form textarea:focus {
   border: solid 1px #F2B338;
 }
 
-.pr-form-wrap {
-
-}
-
 .pr-form-item {
 	padding: 15px;
   float: left;
+}
+
+@media (min-width: 400px) {
+  .pr-form-submit {
+    padding-top: 57px;
+  }
 }
 
 .clearfix {
@@ -212,10 +215,10 @@ margin-bottom: 40px;
 }
 
 .pr-hero-content {
-  max-width: 1110px;
+  max-width: 1080px;
     margin-left: auto;
     margin-right: auto;
-    padding: 66px 15px 66px;
+    padding: 66px 30px 66px;
 }
 .pr-hero-overlay {
   background-image: linear-gradient(178deg, rgba(15,72,118,.8) 0%, rgba(6,49,83,.8) 100%);
