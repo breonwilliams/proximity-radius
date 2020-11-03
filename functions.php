@@ -185,3 +185,22 @@ function YOUR_THEME_NAME_get_distance($origin, $address_lat, $address_lng, $unit
 }
 
 include_once('acf/custom-fields.php');
+
+
+
+function rudr_url_redirects() {
+	/* in this array: old URLs=>new URLs  */
+	$redirect_rules = array(
+		array('old'=>'/school_type/community-college/','new'=>'/proximity-radius-test-page/?school_type=68&proximity=&units=Miles&origin='), // community college
+		array('old'=>'/school_type/university/','new'=>'/proximity-radius-test-page/?school_type=67&proximity=&units=Miles&origin=') // university
+	);
+	foreach( $redirect_rules as $rule ) :
+		// if URL of request matches with the one from the array, then redirect
+		if( urldecode($_SERVER['REQUEST_URI']) == $rule['old'] ) :
+			wp_redirect( site_url( $rule['new'] ), 301 );
+			exit();
+		endif;
+	endforeach;
+}
+
+add_action('template_redirect', 'rudr_url_redirects');
