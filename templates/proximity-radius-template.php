@@ -112,7 +112,10 @@ $heroImage = get_field('hero_background_image'); ?>
 			                    // then we are going to add it to our $results array
 			                    // need to use (float) because the original values are strings.
 			                    if ((float)$distance <= (float)$proximity) {
-			                        array_push($results, get_the_ID());
+														$results[] = array(
+														'id' => get_the_ID(),
+														'dist' => $distance,
+														);
 			                    }
 
 			                }
@@ -124,12 +127,22 @@ $heroImage = get_field('hero_background_image'); ?>
 
 			    }
 
+					// sort results by distance
+					usort($results, function($a, $b) { return $a['dist'] <=> $b['dist']; });
+
+					// return results post ids only for wordpress query
+					$results_order = array();
+					foreach ($results as $result) {
+					$results_order[] = $result['id'];
+					}
+
 			    // a search was made, and there are results in the '$results' array
 			    if($results && $proximity) {
-			        $results_args = array(
-			            'post_type' 	    => 'schools',
-			            'post__in' 		    => $results /* we use post__in to find only the posts that are in the '$results' array */
-			        );
+						$results_args = array(
+						'post_type' => 'schools',
+						'post__in' => $results_order,
+						'orderby' => 'post__in',
+						);
 			    // a search was made, but there are no results in the '$results' array
 			    } else if (!$results && $proximity) {
 			        $results_args = array();
