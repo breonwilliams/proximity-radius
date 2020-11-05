@@ -191,7 +191,7 @@ $heroImage = get_field('hero_background_image'); ?>
 											echo '<span class="proximity-location">' . esc_html( $location->name ) . '</span>';
 											?>
 											<?php if ( get_field( 'website' ) ): ?><?php
-											echo '<a class="proximity-link pr-visit" href="' . get_field('website') . '" target="_blank">Visit <i class="fas fa-external-link-alt fa-xs"></i></a>';
+											echo '<a class="proximity-link pr-visit" href="' . get_field('website') . '" target="_blank">Visit <i class="fas fa-external-link-alt fa-md"></i></a>';
 											?>
 											<?php else: // field_name returned false ?><?php
 												echo '<a class="proximity-link" href="' . esc_url( $permalink ) . '">More Info</a>';
