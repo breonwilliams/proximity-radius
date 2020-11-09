@@ -157,6 +157,11 @@ form.pr-form textarea:focus {
 	margin: 15px 0;
 }
 
+.proximity-card:hover .proximity-title a {
+	color: #0F4876!important;
+	text-decoration: underline;
+}
+
 .proximity-wrap {
   display: flex;
   flex-wrap: wrap;
