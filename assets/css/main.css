@@ -163,7 +163,7 @@ form.pr-form textarea:focus {
 }
 
 .proximity-card:hover {
-  box-shadow: 0px 0px 10px 0px #DFE3EA;
+  box-shadow: 0px 0px 30px 0px #DFE3EA;
 }
 
 .proximity-wrap {
@@ -204,6 +204,7 @@ form.pr-form textarea:focus {
           flex-direction: column;
   position: relative;
   padding: 30px;
+  box-shadow: 0px 0px 10px 0px #DFE3EA;
 }
 
 .proximity-content {
