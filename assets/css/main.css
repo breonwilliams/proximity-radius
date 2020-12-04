@@ -117,6 +117,10 @@ form.pr-form textarea:focus {
   border: solid 1px #F2B338;
 }
 
+form.pr-form select:focus {
+	box-shadow: 0 0px 0px 1px #F2B338;
+}
+
 .pr-form-item {
 	padding: 15px;
   float: left;
