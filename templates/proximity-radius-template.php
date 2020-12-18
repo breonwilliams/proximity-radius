@@ -47,7 +47,7 @@ $heroImage = get_field('hero_background_image'); ?>
 						</div>
 					<div class="pr-form-item">
 						<p class="pr-label">Find a school within:</p>
-							<input name="proximity" type="number" placeholder="0" value="<?php echo $_GET['proximity'] ?>" style="width: 100px" />
+							<input title="Distance" name="proximity" type="number" placeholder="0" value="<?php echo $_GET['proximity'] ?>" style="width: 100px" />
 							<select class="minimal" name="units" style="width: 130px">
 									<option value="Miles" <?php echo $_GET['units'] === 'Miles' ? 'selected' : null; ?>>Miles</option>
 									<option value="K" <?php echo $_GET['units'] === 'K' ? 'selected' : null; ?>>Km</option>
@@ -56,7 +56,7 @@ $heroImage = get_field('hero_background_image'); ?>
 
 								<div class="pr-form-item">
 									<p class="pr-label">Search by Zip code:</p>
-							<input name="origin" type="text" placeholder="Enter zip code" value="<?php echo $_GET['origin'] ?>" />
+							<input title="Zip Code" name="origin" type="text" placeholder="Enter zip code" value="<?php echo $_GET['origin'] ?>" />
 						</div>
 					<div class="pr-form-item pr-form-submit">
 							<input class="pr-submit" type="submit" value="Search" />

@@ -395,6 +395,13 @@ color: #262626!important;
     left: 0;
 }
 
+.pr-reset {
+  color: #0F4876!important;
+  background: #ccc;
+  padding: 11px;
+  border-radius: 4px;
+  font-weight: bold;
+}
 .pr-reset:hover {
-  color: #0F4875;
+  background: #f1f1f1;
 }
